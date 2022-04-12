@@ -2,6 +2,14 @@ public class Circle extends Shape {
     private Point center;
     private double radius;
 
+    public Point getCenter() {
+        return center;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
     public Circle(Point center, double radius) throws Exception {
         if (isCircle(radius)) {
             super.setType(ShapeType.CIRCLE);

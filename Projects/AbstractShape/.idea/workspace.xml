@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4403428-23eb-4562-bde8-eb0f787c4308" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../AbstractShape1/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbstractShape/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AbstractShape/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbstractShape/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AbstractShape/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbstractShape/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AbstractShape/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbstractShape/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AbstractShape/Rectangle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Triangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

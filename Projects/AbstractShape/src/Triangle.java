@@ -15,6 +15,18 @@ public class Triangle extends Shape {
         }
     }
 
+    public Point getPointA() {
+        return pointA;
+    }
+
+    public Point getPointB() {
+        return pointB;
+    }
+
+    public Point getPointC() {
+        return pointC;
+    }
+
     private boolean isTriangle(Point pointA, Point pointB, Point pointC) {
         return this.calculateArea(pointA, pointB, pointC) > 0;
     }

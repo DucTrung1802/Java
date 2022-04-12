@@ -28,4 +28,20 @@ public class Rectangle extends Shape {
         double DA_y = pointA.getY() - pointD.getY();
         return ((AB_x * BC_x + AB_y * BC_y == 0) && (BC_x * CD_x + BC_y * CD_y == 0) && (CD_x * DA_x + CD_y * DA_y == 0));
     }
+
+    public Point getPointA() {
+        return pointA;
+    }
+
+    public Point getPointB() {
+        return pointB;
+    }
+
+    public Point getPointC() {
+        return pointC;
+    }
+
+    public Point getPointD() {
+        return pointD;
+    }
 }

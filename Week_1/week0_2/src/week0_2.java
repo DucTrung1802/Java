@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class week0_2 {
     public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);
         int input;

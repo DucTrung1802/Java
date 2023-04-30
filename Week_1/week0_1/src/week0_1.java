@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Main {
+public class week0_1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int[] array_int = new int[3];

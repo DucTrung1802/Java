@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThreeSort {
@@ -15,7 +16,7 @@ public class ThreeSort {
         }
 
         /* Sort */
-
+        Arrays.sort(array);
 
         /* Output */
         System.out.print("Array: ");

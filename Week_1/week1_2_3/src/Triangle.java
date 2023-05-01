@@ -4,25 +4,21 @@ import java.math.RoundingMode;
 import java.util.Scanner;
 
 class Triangle {
-    public static BigDecimal getDistance(double x1, double y1, double x2, double y2) {
-        BigDecimal x1_ = new BigDecimal(x1);
-        BigDecimal y1_ = new BigDecimal(y1);
-        BigDecimal x2_ = new BigDecimal(x2);
-        BigDecimal y2_ = new BigDecimal(y2);
-        BigDecimal distance;
-        distance = ((x1_.subtract(x2_)).pow(2).add((y1_.subtract(y2_)).pow(2))).sqrt(new MathContext(20));
+    public static double getDistance(double x1, double y1, double x2, double y2) {
+        double distance;
+        distance = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
         return distance;
     }
 
     static boolean isTriangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         // begin edit
-        BigDecimal ab_ = getDistance(x1, y1, x2, y2);
-        BigDecimal ac_ = getDistance(x1, y1, x3, y3);
-        BigDecimal bc_ = getDistance(x2, y2, x3, y3);
-        int condition_1 = (ab_.add(ac_)).compareTo(bc_);
-        int condition_2 = (ab_.add(bc_)).compareTo(ac_);
-        int condition_3 = (ac_.add(bc_)).compareTo(ab_);
-        return (condition_1 + condition_2 + condition_3 == 3);
+        double ab_ = getDistance(x1, y1, x2, y2);
+        double ac_ = getDistance(x1, y1, x3, y3);
+        double bc_ = getDistance(x2, y2, x3, y3);
+        boolean condition_1 = (ac_ + bc_) > ab_;
+        boolean condition_2 = (ab_ + bc_) > ac_;
+        boolean condition_3 = (ab_ + ac_) > bc_;
+        return (condition_1 && condition_2 && condition_3);
         //end edit
     }
 
@@ -30,19 +26,22 @@ class Triangle {
         // begin edit
         boolean value = false;
         if (isTriangle(x1, y1, x2, y2, x3, y3)) {
-            BigDecimal ab_ = getDistance(x1, y1, x2, y2);
-            BigDecimal ac_ = getDistance(x1, y1, x3, y3);
-            BigDecimal bc_ = getDistance(x2, y2, x3, y3);
-            BigDecimal condition_1 = ab_.pow(2).subtract(ac_.pow(2).add(bc_.pow(2))).setScale(6, RoundingMode.HALF_UP);
-            BigDecimal condition_2 = ac_.pow(2).subtract(ab_.pow(2).add(bc_.pow(2))).setScale(6, RoundingMode.HALF_UP);
-            BigDecimal condition_3 = bc_.pow(2).subtract(ab_.pow(2).add(ac_.pow(2))).setScale(6, RoundingMode.HALF_UP);
+            double[] ab_vector = {(x1 - x2), (y1 - y2)};
+            double[] ac_vector = {(x1 - x3), (y1 - y3)};
+            double[] bc_vector = {(x2 - x3), (y2 - y3)};
+            boolean condition_1 = (ab_vector[0] * ac_vector[0] + ab_vector[1] * ac_vector[1]) == 0.0d;
+            boolean condition_2 = (ac_vector[0] * bc_vector[0] + ac_vector[1] * bc_vector[1]) == 0.0d;
+            boolean condition_3 = (ab_vector[0] * bc_vector[0] + ab_vector[1] * bc_vector[1]) == 0.0d;
 
-            System.out.println(condition_1);
-            System.out.println(condition_2);
-            System.out.println(condition_3);
+            double con_1 = (ab_vector[0] * ac_vector[0] + ab_vector[1] * ac_vector[1]);
+            double con_2 = (ac_vector[0] * bc_vector[0] + ac_vector[1] * bc_vector[1]);
+            double con_3 = (ab_vector[0] * bc_vector[0] + ab_vector[1] * bc_vector[1]);
 
-//            value = (condition_1 * condition_2 * condition_3) == 0;
-//        }
+//            System.out.println(con_1);
+//            System.out.println(con_2);
+//            System.out.println(con_3);
+
+            value = (condition_1 || condition_2 || condition_3);
             //end edit
         }
         return value;

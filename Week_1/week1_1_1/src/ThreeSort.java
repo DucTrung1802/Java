@@ -1,14 +1,13 @@
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class ThreeSort {
 
     public static void main(String[] args) {
-        int[] array = new int[3];
-        Scanner scan = new Scanner(System.in);
-        array[0] = scan.nextInt();
-        array[1] = scan.nextInt();
-        array[2] = scan.nextInt();
+        int[] array = new int[args.length];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Integer.parseInt(args[i]);
+        }
 
         Arrays.sort(array);
 

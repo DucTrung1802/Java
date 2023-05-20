@@ -17,58 +17,68 @@
  * 3. Tìm nhân viên có lương cao nhất, và in ra xem thuộc loại nào?
  */
 public class Employee {
-	
-	private String name;
-	private String hometown;
-	private int basicSalary;
-	private int days;
-	public Employee(String name, String hometown, int basicSalary, int days) {
-		super();
-		this.name = name;
-		this.hometown = hometown;
-		this.basicSalary = basicSalary;
-		this.days = days;
-	}
-	public Employee() {
-		super();
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getHometown() {
-		return hometown;
-	}
-	public void setHometown(String hometown) {
-		this.hometown = hometown;
-	}
-	public int getBasicSalary() {
-		return basicSalary;
-	}
-	public void setBasicSalary(int basicSalary) {
-		this.basicSalary = basicSalary;
-	}
-	public int getDays() {
-		return days;
-	}
-	public void setDays(int days) {
-		this.days = days;
-	}
-	
-	public int computeSalary()
-	{
-		return basicSalary*days;
-	}
-	
-	@Override
-	public String toString() {
-		return "Employee [name=" + name + ", hometown=" + hometown + ", basicSalary=" + basicSalary + ", days=" + days
-				+ ", computeSalary()=" + computeSalary() + "]";
-	}
-	
-	
-	
+
+    private String name;
+    private String hometown;
+    private double basicSalary;
+    private int days;
+
+    public Employee(String name, String hometown, int basicSalary, int days) {
+        super();
+        this.name = name;
+        this.hometown = hometown;
+        this.basicSalary = basicSalary;
+        this.days = days;
+    }
+
+    public void setBasicSalary(double basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+
+    public Employee() {
+        super();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHometown() {
+        return hometown;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
+
+    public double getBasicSalary() {
+        return basicSalary;
+    }
+
+    public void setBasicSalary(int basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    public double computeSalary() {
+        return basicSalary * days;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [name=" + name + ", hometown=" + hometown + ", basicSalary=" + basicSalary + ", days=" + days + ", computeSalary()=" + computeSalary() + "]";
+    }
+
 
 }

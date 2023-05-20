@@ -1,12 +1,24 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.Scanner;
 
+enum SortAttribute {
+    SALARY,
+    HOMETOWN,
+    WORKING_DAYS
+}
+
+enum SortType {
+    ASCENDING,
+    DESCENDING
+}
+
 public class Main {
     public static ArrayList<Employee> readFile(String fileName) {
-        Scanner scan = null;
+        Scanner scan;
         ArrayList<Employee> ems = new ArrayList<>();
 
         try {
@@ -59,7 +71,7 @@ public class Main {
                 max_salary = em.computeSalary();
             }
         }
-        for (Employee em: ems) {
+        for (Employee em : ems) {
             if (em.computeSalary() == max_salary) {
                 temp_ems.add(em);
             }
@@ -75,7 +87,7 @@ public class Main {
                 min_salary = em.computeSalary();
             }
         }
-        for (Employee em: ems) {
+        for (Employee em : ems) {
             if (em.computeSalary() == min_salary) {
                 temp_ems.add(em);
             }
@@ -83,7 +95,52 @@ public class Main {
         return temp_ems;
     }
 
-    public static void sortEmployees()
+    public static void sortEmployees(ArrayList<Employee> ems, SortAttribute sort_attribute, SortType sort_type) {
+        if (sort_attribute == SortAttribute.SALARY) {
+            double salary = ems.get(0).computeSalary();
+            for (int i = 0; i < ems.size() - 1; i++) {
+                for (int j = i + 1; j < ems.size(); j++) {
+                    if (sort_type == SortType.ASCENDING) {
+                        if (ems.get(j).computeSalary() < ems.get(i).computeSalary()) {
+                            Collections.swap(ems, i, j);
+                        }
+                    } else if (sort_type == SortType.DESCENDING) {
+                        if (ems.get(j).computeSalary() > ems.get(i).computeSalary()) {
+                            Collections.swap(ems, i, j);
+                        }
+                    }
+                }
+            }
+        } else if (sort_attribute == SortAttribute.HOMETOWN) {
+            for (int i = 0; i < ems.size() - 1; i++) {
+                for (int j = i + 1; j < ems.size(); j++) {
+                    if (sort_type == SortType.ASCENDING) {
+                        if (ems.get(i).getHometown().toLowerCase().compareTo(ems.get(j).getHometown().toLowerCase()) == -1) {
+                            Collections.swap(ems, i, j);
+                        }
+                    } else if (sort_type == SortType.DESCENDING) {
+                        if (ems.get(i).getHometown().toLowerCase().compareTo(ems.get(j).getHometown().toLowerCase()) == 1) {
+                            Collections.swap(ems, i, j);
+                        }
+                    }
+                }
+            }
+        } else if (sort_attribute == SortAttribute.WORKING_DAYS) {
+            for (int i = 0; i < ems.size() - 1; i++) {
+                for (int j = i + 1; j < ems.size(); j++) {
+                    if (sort_type == SortType.ASCENDING) {
+                        if (ems.get(j).getDays() < ems.get(i).getDays()) {
+                            Collections.swap(ems, i, j);
+                        }
+                    } else if (sort_type == SortType.DESCENDING) {
+                        if (ems.get(j).getDays() > ems.get(i).getDays()) {
+                            Collections.swap(ems, i, j);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // In ra các nhân viên có quê ở "nam định"
     // Tìm các nhân viên có lương cao nhất?
@@ -102,5 +159,14 @@ public class Main {
         printEmployees(EmployeesWithHighestSalary(ems));
         System.out.println("\nLowest salary");
         printEmployees(EmployeesWithLowestSalary(ems));
+        System.out.println("\nSort SALARY ASCENDING");
+        sortEmployees(ems, SortAttribute.SALARY, SortType.ASCENDING);
+        printEmployees(ems);
+        System.out.println("\nSort HOMETOWN DESCENDING");
+        sortEmployees(ems, SortAttribute.HOMETOWN, SortType.DESCENDING);
+        printEmployees(ems);
+        System.out.println("\nSort WORKING_DAYS ASCENDING");
+        sortEmployees(ems, SortAttribute.WORKING_DAYS, SortType.ASCENDING);
+        printEmployees(ems);
     }
 }

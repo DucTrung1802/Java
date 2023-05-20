@@ -31,10 +31,6 @@ public class Employee {
         this.days = days;
     }
 
-    public void setBasicSalary(double basicSalary) {
-        this.basicSalary = basicSalary;
-    }
-
     public Employee() {
         super();
     }
@@ -59,6 +55,10 @@ public class Employee {
         return basicSalary;
     }
 
+    public void setBasicSalary(double basicSalary) {
+        this.basicSalary = basicSalary;
+    }
+
     public void setBasicSalary(int basicSalary) {
         this.basicSalary = basicSalary;
     }
@@ -77,7 +77,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee [name=" + name + ", hometown=" + hometown + ", basicSalary=" + basicSalary + ", days=" + days + ", computeSalary()=" + computeSalary() + "]";
+        return "Employee\t[name=" + name + ", hometown=" + hometown + ", basicSalary=" + basicSalary + ", days=" + days + ", computeSalary()=" + computeSalary() + "]";
     }
 
 

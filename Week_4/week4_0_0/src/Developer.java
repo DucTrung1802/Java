@@ -16,7 +16,7 @@ public class Developer extends Employee {
 
     @Override
     public String toString() {
-        return "Developer [name=" + super.getName() + ", hometown=" + super.getHometown() + ", nProjects=" + nProjects + ", computeSalary()=" + computeSalary() + "]";
+        return "Developer\t[name=" + super.getName() + ", hometown=" + super.getHometown() + ", basicSalary=" + super.getBasicSalary() + ", days=" + super.getDays() + ", nProjects=" + nProjects + ", computeSalary()=" + computeSalary() + "]";
     }
 
 }

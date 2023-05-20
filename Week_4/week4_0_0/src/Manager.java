@@ -22,7 +22,7 @@ public class Manager extends Employee{
 
     @Override
     public String toString() {
-        return "Manager [name=" + super.getName() + ", hometown=" + super.getHometown() + ", salaryCoefficient=" + this.salaryCoefficient + ", computeSalary()=" + computeSalary() + "]";
+        return "Manager\t\t[name=" + super.getName() + ", hometown=" + super.getHometown() + ", basicSalary=" + super.getBasicSalary() + ", days=" + super.getDays() + ", salaryCoefficient=" + this.salaryCoefficient + ", computeSalary()=" + computeSalary() + "]";
     }
 
 }

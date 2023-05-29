@@ -30,12 +30,22 @@ public class AthleteManager {
     }
 
     public static void printAthletes(ArrayList<Athlete> arrayAthlete) {
-        for (int i = 0; i < arrayAthlete.size(); i++)
+        for (int i = 0; i < arrayAthlete.size(); i++) {
             System.out.println(arrayAthlete.get(i).toString());
+        }
+    }
+
+    public static void printBMIs(ArrayList<Athlete> aths) {
+        for (int i = 0; i < aths.size(); i++) {
+            double bmi = aths.get(i).getWeight() / (aths.get(i).getHeight() * aths.get(i).getHeight()) * 10000;
+            bmi = (double) Math.round(bmi * 1000) / 1000;
+            System.out.println(bmi + "\t");
+        }
     }
 
     public static void main(String[] args) {
         ArrayList<Athlete> arrayAthlete = readFile("src/athletes.txt");
         printAthletes(arrayAthlete);
+        printBMIs(arrayAthlete);
     }
 }

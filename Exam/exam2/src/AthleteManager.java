@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class AthleteManager {
             arrayAthlete = new ArrayList<>();
 
             int numAthlete = Integer.parseInt(scan.nextLine());
-            while(scan.hasNext()) {
+            while (scan.hasNext()) {
                 String name = scan.nextLine();
                 int year = Integer.parseInt(scan.nextLine());
                 String sport = scan.nextLine();
@@ -54,10 +55,39 @@ public class AthleteManager {
         return temp_aths;
     }
 
+    public static ArrayList<Athlete> findAthlete(ArrayList<Athlete> aths) {
+        ArrayList<Athlete> temp_ath = new ArrayList<>();
+        double max_height = 0.0d;
+        for (Athlete ath : aths) {
+            if (ath.getHeight() > max_height) {
+                max_height = ath.getHeight();
+            }
+        }
+        for (Athlete ath : aths) {
+            if (ath.getHeight() == max_height) {
+                temp_ath.add(ath);
+            }
+        }
+        return temp_ath;
+    }
+
+    public static void sort(ArrayList<Athlete> aths) {
+        for (int i = 0; i < aths.size() - 1; i++) {
+            for (int j = i + 1; j < aths.size(); j++) {
+                if (aths.get(i).getName().toLowerCase().compareTo(aths.get(j).getName().toLowerCase()) > 0) {
+                    Collections.swap(aths, i, j);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<Athlete> arrayAthlete = readFile("src/athletes.txt");
         printAthletes(arrayAthlete);
         printBMIs(arrayAthlete);
         printAthletes(findSport(arrayAthlete, "Bong Chuyen"));
+        printAthletes(findAthlete(arrayAthlete));
+        sort(arrayAthlete);
+        printAthletes(arrayAthlete);
     }
 }

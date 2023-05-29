@@ -31,9 +31,9 @@ public class AthleteManager {
         return arrayAthlete;
     }
 
-    public static void printAthletes(ArrayList<Athlete> arrayAthlete) {
-        for (Athlete athlete : arrayAthlete) {
-            System.out.println(athlete.toString());
+    public static void print(ArrayList<Athlete> aths) {
+        for (Athlete a : aths) {
+            System.out.println(a.toString());
         }
     }
 
@@ -83,11 +83,11 @@ public class AthleteManager {
 
     public static void main(String[] args) {
         ArrayList<Athlete> arrayAthlete = readFile("src/athletes.txt");
-        printAthletes(arrayAthlete);
+        print(arrayAthlete);
         printBMIs(arrayAthlete);
-        printAthletes(findSport(arrayAthlete, "Bong Chuyen"));
-        printAthletes(findAthlete(arrayAthlete));
+        print(findSport(arrayAthlete, "Bong Chuyen"));
+        print(findAthlete(arrayAthlete));
         sort(arrayAthlete);
-        printAthletes(arrayAthlete);
+        print(arrayAthlete);
     }
 }
